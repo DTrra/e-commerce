@@ -1,9 +1,9 @@
 import React from 'react';
-
+import { Carrito } from '../Carrito/Carrito';
 
 const navbar = () => {
     return (
-        <div>
+        <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-danger">
                 <div className="container">
                     <a href='/'><img src='./LogoLaTronera.png' width='150' alt='La Tronera' /></a>
@@ -23,9 +23,12 @@ const navbar = () => {
                             </li>
                         </ul>
                     </div>
+                    <div>
+                        <Carrito/>
+                    </div>
                 </div>
             </nav>
-        </div>
+        </>
     );
 };
 

@@ -4,7 +4,7 @@ import Navbar from './components/navbar/NavBar';
 function App() {
   return (
     <div className='App'>
-      <Navbar />
+      <Navbar/>
       <div>
         <p></p>
       </div>
@@ -19,7 +19,7 @@ function App() {
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div className="accordion-body">
                 <div className="row">
-                  <div className="col-md-6">
+                  <div className="col-md-auto">
                     <ul>
                       <li className=''>MUZZARELLA</li>
                       <p>Grande $950 / Chica $750</p>
