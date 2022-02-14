@@ -16,7 +16,16 @@ const navbar = () => {
                                 <a className="nav-link" href='/'>Inicio</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href='/menu'>Menu</a>
+                                <a className="nav-link" href='/menu'>Pizzas</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href='/menu'>Empanadas</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href='/menu'>Bebidas</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="nav-link" href='/menu'>Promciones</a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href='/contacto'>Contacto</a>
