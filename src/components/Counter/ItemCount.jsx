@@ -14,9 +14,9 @@ const Counter = ({ stock, initial, addToCart }) => {
         <div className="container">
             <div className="container-buton shadow">
                 <div className="container-add-substract">
-                    <button onClick={add}>+</button>
-                    <p>{number}</p>
                     <button onClick={substract}>-</button>
+                    <p>{number}</p>
+                    <button onClick={add}>+</button>
                 </div>
                 <div>
                     <button 

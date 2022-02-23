@@ -1,5 +1,6 @@
 import React from 'react';
-import { Carrito } from '../Carrito/Carrito';
+import { Link } from 'react-router-dom';
+import { Carrito } from '../CartWidget/Carrito';
 import './EstilosNav.css';
 
 const navbar = () => {
@@ -14,22 +15,22 @@ const navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mx-auto menu">
                             <li className="nav-item">
-                                <a className="nav-link" href='/'>Inicio</a>
+                                <Link className="nav-link" to='/'>Inicio</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href='/menu'>Pizzas</a>
+                                <Link className="nav-link" to='/pizzas'>Pizzas</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href='/menu'>Empanadas</a>
+                                <Link className="nav-link" to='/empanadas'>Empanadas</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href='/menu'>Bebidas</a>
+                                <Link className="nav-link" to='/bebidas'>Bebidas</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href='/menu'>Promciones</a>
+                                <Link className="nav-link" to='/promociones'>Promociones</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href='/contacto'>Contacto</a>
+                                <Link className="nav-link" to='/contacto'>Contacto</Link>
                             </li>
                         </ul>
                     </div>

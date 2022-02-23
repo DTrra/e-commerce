@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { traerProductos } from '../../mock/products';
-import ItemList from '../ItemList';
+import ItemList from '../ItemList/ItemList';
+import { traerProductos  } from '../Products/products';
 
-
-const ItemListContainer = ({ saludo }) => {
+export const ItemListContainer =()=>{
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -29,11 +28,20 @@ const ItemListContainer = ({ saludo }) => {
                 </div>
             ) : (
         <>
-            <ItemList products={products} />
+            {
+                traerProductos.map(producto=>{
+                    return(
+                        <ItemList key={producto.id} productoProp={producto}/>
+                    )
+                })
+            }
+    
         </>
             )}
         </>
     );
+
+    
 };
 
 export default ItemListContainer;

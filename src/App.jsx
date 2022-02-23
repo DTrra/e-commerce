@@ -1,22 +1,25 @@
 import './App.css';
-import Counter from './components/Counter/ItemCount';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Navbar from './components/navbar/NavBar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import {Home} from './components/Pages/Home';
+import {Pizzas} from './components/Pages/Pizzas';
+import {ItemDetailContainer} from './components/ItemDetailContainer/ItemDetailContainer';
+
+
 
 
 function App() {
-
-  const addToCart = (number) => {
-    console.log(`Se agregaron al carrito ${number} items`);
-
-  };
-
   return (
-    <div className='App'>
+
+    <BrowserRouter>
       <Navbar/>
-      <ItemListContainer/>
-      {/*<Counter stock={10} initial={0} addToCart={addToCart} />*/ }
-    </div>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/CartaDePedidos/:id' element={<ItemDetailContainer/>}/>
+        <Route path='/pizzas/' element={<Pizzas/>}/>
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
