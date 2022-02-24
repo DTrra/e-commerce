@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './ItemCount';
+import './ItemCount.css';
 
 const Counter = ({ stock, initial, addToCart }) => {
     const [number, setNumber] = useState(0);
-    const add = () => {
+    const add = () => { 
         number < stock && setNumber(number + 1);
     };
     const substract = () => {
@@ -12,11 +12,11 @@ const Counter = ({ stock, initial, addToCart }) => {
 
     return (
         <div className="container">
-            <div className="container-buton shadow">
+            <div className="container-buton">
                 <div className="container-add-substract">
-                    <button onClick={substract}>-</button>
-                    <p>{number}</p>
-                    <button onClick={add}>+</button>
+                <button onClick={substract}>-</button>
+                <p>{number}</p>
+                <button onClick={add}>+</button>
                 </div>
                 <div>
                     <button 

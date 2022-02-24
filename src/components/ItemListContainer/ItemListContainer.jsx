@@ -1,47 +1,42 @@
+import React from 'react'
 import { useEffect, useState } from 'react';
-import ItemList from '../ItemList/ItemList';
-import { traerProductos  } from '../Products/products';
+import { getCategories } from '../Products/products'
+import ItemList from '../ItemList/ItemList'
+import { useParams } from 'react-router-dom';
 
-export const ItemListContainer =()=>{
-    const [products, setProducts] = useState([]);
+const ItemListContainer = () => {
+
+    const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true);
+    const {categoryId} = useParams()
 
+    
     useEffect(() => {
-        traerProductos
-            .then((res) => {
-                setProducts(res);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
+        getCategories(categoryId).then(item => {
+            setProducts(item)
+        }).catch(err  => {
+            console.log(err)
+        })
+        .finally(() => {
+            setLoading(false);
+        });
 
-
+        
+    }, [categoryId])
+    
     return (
         <>
-        {loading ? (
-                <div className="container text-center">
+            {loading ? (
+            <div className="container text-center">
                     <img src='cargandoPizza.gif' alt='Cargando...' />
                 </div>
             ) : (
-        <>
-            {
-                traerProductos.map(producto=>{
-                    return(
-                        <ItemList key={producto.id} productoProp={producto}/>
-                    )
-                })
-            }
-    
-        </>
+                <>
+                    <ItemList products={products} />
+                </>
             )}
         </>
-    );
-
+    );   
     
-};
-
-export default ItemListContainer;
+}
+export default ItemListContainer

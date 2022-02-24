@@ -1,28 +1,23 @@
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { Link } from "react-router-dom"
-import Products from '../Products/products'
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
-const Item = ({ img, name, description }) => {
 
-    return (
-        <div className="container">
-            <div className="row">
-                <Card className="shadow" style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={img} width="200px" alt={name} />
-                    <Card.Body>
-                        <Card.Title>{name}</Card.Title>
-                        <Card.Text>
-                            {description}
-                        </Card.Text>
-                        <Link to={'./${products.id}'}>
-                        <Button variant="danger">Pedir +</Button>
-                    </Link>
-                    </Card.Body>
-                </Card>
-            </div>
+const Item = ({product}) =>{
+    return(
+        <div className='container'>
+            <Card className="shadow" style={{ width: '18rem' }}>
+            <Card.Body>
+            <Card.Title>{product.name}</Card.Title>
+            <Card.Img variant="top" src={product.img} width="200px" alt='imagen' />
+                <h3>${product.price}</h3>
+            <Link to={`/detail/${product.id}`}>
+                <Button variant="danger">Pedir +</Button>
+            </Link>
+            </Card.Body>
+            </Card>
         </div>
-    );
-
+        
+    )
 }
-export default Item;
+export default Item
