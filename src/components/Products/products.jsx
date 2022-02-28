@@ -35,6 +35,7 @@ export const products = [
         description: '3 grandes de Muzzarella 1 Cerveza Patagonia y 12 empanadas',
         category: 'Promociones',
     },
+    
 ];
 
 
@@ -44,7 +45,7 @@ export const getProduct = (id) => {
         const prod = products.find(p => p.id === parseInt(id))
         setTimeout(() => {
             resolve(prod)
-        }, 2000)
+        }, 1000)
     })
 }
 
@@ -55,6 +56,6 @@ export const getCategories = (categoryId) => {
         )
         setTimeout(() => {
             categoryId ? resolve(filtro) : resolve (products)
-        }, 4000)
+        }, 1000)
     })
 }

@@ -1,14 +1,18 @@
 import Item from '../Item/Item';
 
 
-const ItemList = ({products}) => {
-    return(
-        <div className='container' style={{display: 'flex',justifyContent: 'center',alignItems: 'center', width: 400, height: 400}}>
-        
-        {products.map((product)=>
-        <Item product={product} key={product.id}/>
-    )}
-    </div>
-)
+const ItemList = ({ products }) => {
+    return (
+        <div className="container">
+            <div className='row'>
+                <div className='d-flex col-md-3'>
+                {products.map((product) =>
+                        <Item product={product} key={product.id} />
+                    )}
+                    
+                </div>
+            </div>
+        </div>
+    )
 }
-export default ItemList
+export default ItemList; 

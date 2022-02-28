@@ -1,9 +1,20 @@
+import React from 'react';
 
-export const Pizzas = () => {
+
+const Pizzas = () => {
     return (
-    <>
-        <p className="container">Bienvenido a la pagina de PIZZAS</p>
 
-    </>
+    <div className='container'>
+        <p>MUZZARELLA</p>
+        <hr/>
+        <p>NAPOLITANA</p>
+        <hr/>
+        <p>FUGAZZETTA</p>
+        <hr/>
+        <p>PROVOLONE</p>
+        <hr/>
+    </div>
     );
 };
+
+export default Pizzas;

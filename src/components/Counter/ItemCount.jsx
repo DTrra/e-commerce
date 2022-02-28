@@ -24,11 +24,12 @@ const Counter = ({ stock, onAdd }) => {
                     disabled={number === 0}
                     className={number === 0 ? 'disabled' : 'add'}
                     onClick={() => onAdd(number)}
-                >
-                    Enviar al Repartidor
+                > Enviar al Repartidor
                 </button>
             </div>
         </div>
     );
 };
+
+
 export default Counter;

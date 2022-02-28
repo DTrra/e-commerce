@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import CardGroup from 'react-bootstrap/CardGroup'
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +18,6 @@ const Item = ({product}) =>{
             </Card.Body>
             </Card>
         </div>
-        
     )
 }
 export default Item
