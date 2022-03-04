@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Carrito } from '../CartWidget/Carrito';
+import  CartWidget  from './CartWidget/CartWidget';
 import './EstilosNav.css';
 
-const navbar = () => {
+
+export const NavBar =()=> {
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-dark background">
@@ -35,7 +37,10 @@ const navbar = () => {
                         </ul>
                     </div>
                     <div>
-                        <Carrito/>
+                    <Link className="nav-link" to='/Cart'>
+                        <CartWidget />
+                    </Link>
+                        
                     </div>
                 </div>
             </nav>
@@ -43,4 +48,5 @@ const navbar = () => {
     );
 };
 
-export default navbar;
+
+export default NavBar;
