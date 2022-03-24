@@ -20,13 +20,13 @@ export const NavBar =()=> {
                                 <Link className="nav-link" to='/'>Inicio</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={'category/Pizzas'}>Pizzas</Link>
+                                <Link className="nav-link" to={'category/Pizza'}>Pizzas</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={'category/Empanadas'}>Empanadas</Link>
+                                <Link className="nav-link" to={'category/Empanada'}>Empanadas</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={'category/Promociones'}>Promociones</Link>
+                                <Link className="nav-link" to={'category/Promocion'}>Promociones</Link>
                             </li>
                         </ul>
                     </div>
