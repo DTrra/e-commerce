@@ -7,60 +7,62 @@ import { collection, getDocs } from 'firebase/firestore';
 import db from '../../services/firebase';
 
 const ItemListContainer = () => {
+    const [items, setItems] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    const [product, setProducts] = useState([])
-    const [prodFiltrados, setprodFiltrados] = useState ([])
-    const [loading, setLoading] = useState(true);
-    const {categoryId} = useParams()
+    let { category } = useParams();
 
-    const getData = async() =>{
-        try { 
-            const itemsCollection = collection (db,"Items")
+    const getData = async () => {
+        try {
+            const itemsCollection = collection(db, "Items")
             const col = await getDocs(itemsCollection)
-            const result = col.docs.map((doc) => doc = {id:doc.id, ...doc.data()})
-            setProducts(result)
-            setLoading(false)
-
+            const result = col.docs.map((doc) => doc = { id: doc.id, ...doc.data() })
+            setItems(result)
+            setIsLoading(false)
         } catch (error) {
-            console.warn("error",error)
+            console.log('Error', error);
         }
-}
+    }
+
+    const getDataCategory = async () => {
+        try {
+            const itemsCollection = collection(db, "Items")
+            const col = await getDocs(itemsCollection)
+            const result = col.docs.map((doc) => doc = { id: doc.id, ...doc.data() })
+            setItems(result.filter(e => e.category === category))
+            setIsLoading(false)
+        } catch (error) {
+            console.log('Error', error)
+        }
+    }
 
     useEffect(() => {
-        getData()
-        !categoryId? setprodFiltrados(product) : setprodFiltrados(product.filter(product=>product.category === categoryId))
-    }, [categoryId])
+        category ? getDataCategory() : getData()
 
-console.log("product",product)
+    }, [category])
 
-    
+    console.log('items', items)
+
     return (
         <>
-            {loading ? (
-            <div className="container text-center">
+            {isLoading ? (
+                <div className="container text-center">
                     <img src='cargandoPizza.gif' alt='Cargando...' />
                 </div>
             ) : (
                 <>
-                    <ItemList products={product} />
+
+                    <div className="container mt-5 bg-light pt-5 pb-5 shadow-sm">
+                        <div className="row">
+                            <ItemList productos={items} />
+                        </div>
+                    </div>
                 </>
             )}
         </>
-    );   
-    
-}
+    );
+
+};
+
+
 export default ItemListContainer
-
-
-  // useEffect(() => {
-    //     getCategories(categoryId).then(item => {
-    //         setProducts(item)
-    //     }).catch(err  => {
-    //         console.log(err)
-    //     })
-    //     .finally(() => {
-    //         setLoading(false);
-    //     });
-
-        
-    // }, [categoryId])

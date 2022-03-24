@@ -5,14 +5,7 @@ const Pizzas = () => {
     return (
 
     <div className='container'>
-        <p>MUZZARELLA</p>
-        <hr/>
-        <p>NAPOLITANA</p>
-        <hr/>
-        <p>FUGAZZETTA</p>
-        <hr/>
-        <p>PROVOLONE</p>
-        <hr/>
+        PIZZAS
     </div>
     );
 };
