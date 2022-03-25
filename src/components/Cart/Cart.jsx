@@ -2,15 +2,16 @@ import React, { useContext } from 'react';
 import { CartContext } from '../CartContext/CartContext';
 
 const Cart = () => {
-    const { cart, clear, removeItem, item } = useContext(CartContext);
+    const { cart, clear, removeItem, } = useContext(CartContext);
 
 
     return (
         <div className='container'>
             { cart.length > 0 ? `Productos agregados recientemente:`
                             : `El Repartido no tiene nada para enviar` 
-            } 
-            <div>
+            }
+            {cart.length > 0 && (
+            <><div>
                 {cart.map((prod) => (
                     <div  key={prod.id} className='card mb-3' style={{maxWidht: '540 px'}}>
                         <div className='row g-0'>
@@ -24,7 +25,7 @@ const Cart = () => {
                             <p className='card-text'>Precio total ${prod.price * prod.cantidad}</p>
                         </div>   
                         <div className='col-md-2'>
-                        <button className='btn btn-danger'onClick={()=>removeItem(item.id)}>Eliminar pedido</button>
+                        <button className='btn btn-danger'onClick={()=>removeItem(prod.id)}>Eliminar pedido</button>
                         </div>
                         </div>
                     </div>
@@ -34,6 +35,7 @@ const Cart = () => {
             {`Total del pedido: $ ${cart.reduce((acum,item)=> acum + (item.price * item.cantidad),0)}`}
             <hr/>
             <button className='btn btn-danger' onClick={clear}>Vaciar todo el carrito</button>
+            </> ) } 
         </div>
     );
 };

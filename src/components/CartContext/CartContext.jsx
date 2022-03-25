@@ -36,7 +36,8 @@ export const CartContextProvider = ({ children }) => {
 
     const removeItem = (id) => {
         let result = cart.filter((product) => product.id !== id);
-        setCart([result]);
+        setCart([...result]);
+        console.log('quitar', result)
     };
 
     const clear =()=> {
