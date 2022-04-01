@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
-import db from '../../services/firebase';
+import { db } from '../../services/firebase';
 
 const ItemListContainer = () => {
     const [items, setItems] = useState([]);
@@ -47,7 +47,7 @@ const ItemListContainer = () => {
         <>
             {isLoading ? (
                 <div className="container text-center">
-                    <img src='cargandoPizza.gif' alt='Cargando...' />
+                    <img src='../../cargandoPizza.gif' alt='Cargando...' />
                 </div>
             ) : (
                 <>

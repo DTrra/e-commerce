@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Item = ({ id, name, img, price, }) => {
     return (
         <>
-            <div className="col-lg-4 mb-4699999999999 d-flex align-items-stretch">
+            <div className="col-lg-4 mb-50 d-flex align-items-stretch">
                 <div className="card h-100">
                     <img src={img} className="card-img-top" alt={name} />
                     <div className="card-body">
