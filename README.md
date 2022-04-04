@@ -1,4 +1,4 @@
-PizzeriAPP La Tronera es un proyecto de e-commerce diseñado y desarrollado para el Proyecto Final de REACT JS de la carrera de Fullstack Developer en CoderHouse
+# PizzeriAPP La Tronera es un proyecto de e-commerce diseñado y desarrollado para el Proyecto Final de REACT JS de la carrera de Fullstack Developer en CoderHouse
 
 Construído con:
 Bootstrap 5
