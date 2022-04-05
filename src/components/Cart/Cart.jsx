@@ -153,7 +153,7 @@ const Cart = () => {
                                     )}`}
                                 </div>
                             </div>
-                            <button className="btn btn-large btn-block btn-danger  mt-5" type="submit">
+                            <button className="btn btn-large btn-danger  mt-5" type="submit">
                                 Hacer pedido
                             </button>
                         </form>
