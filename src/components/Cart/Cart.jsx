@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../CartContext/CartContext';
 import { collection, Timestamp, addDoc } from "firebase/firestore";
-import  { db, updateStock } from "../../services/firebase";
+import { db, updateStock } from "../../services/firebase";
 import Swal from "sweetalert2";
 
 
@@ -52,8 +52,15 @@ const Cart = () => {
 
     return (
         <div className='container'>
-            {cart.length > 0 ? `Productos agregados recientemente:`
-                : `El Repartido no tiene nada para enviar`
+            {cart.length > 0 ?
+                <div>
+                    <h4>Productos agregados:</h4>
+                </div>
+                :
+                <div>
+                    <img className="mx-auto d-block" src='../../repartidor-sin-pedido.jpg' width='350' alt='La Tronera' />
+                    <h5 className="text-center">No se cargaron pedidos</h5>
+                </div>
             }
             {cart.length > 0 && (
                 <><div>
@@ -77,15 +84,15 @@ const Cart = () => {
                     ))}
                 </div>
                     <hr />
-                    {`Total del pedido: $ ${cart.reduce((acum, item) => acum + (item.price * item.cantidad), 0)}`}
+                    <h3>{`Total del pedido: $ ${cart.reduce((acum, item) => acum + (item.price * item.cantidad), 0)}`}</h3>
                     <hr />
                     <button className='btn btn-danger' onClick={clear}>Vaciar todo el carrito</button>
                 </>)}
 
-            
+
             <div className="container card mt-2">
                 <div className="d-flex">
-                    <div className="card-body">            
+                    <div className="card-body">
                         <form className="w-50 mx-auto" onSubmit={sendOrder}>
                             <legend className="mb-5">
                                 Completar con tus datos para finalizar la compra
@@ -132,22 +139,22 @@ const Cart = () => {
                                 <div className="valid-feedback">Campo válido!</div>
                                 <div className="invalid-feedback">Campo Incorrecto!</div>
                             </div>
-                        <div className="text-center">
-                            <div className="text-center h4">
-                                {`Productos agregados: ${cart.reduce(
-                                    (ac, prod) => ac + prod.cantidad,
-                                    0
-                                )}`}
+                            <div className="text-center">
+                                <div className="text-center h4">
+                                    {`Productos agregados: ${cart.reduce(
+                                        (ac, prod) => ac + prod.cantidad,
+                                        0
+                                    )}`}
+                                </div>
+                                <div className="text-center h4 mt-3">
+                                    {`Valor Total de la compra: $ ${cart.reduce(
+                                        (ac, prod) => ac + prod.price * prod.cantidad,
+                                        0
+                                    )}`}
+                                </div>
                             </div>
-                            <div className="text-center h4 mt-3">
-                                {`Valor Total de la compra: $ ${cart.reduce(
-                                    (ac, prod) => ac + prod.price * prod.cantidad,
-                                    0
-                                )}`}
-                            </div>          
-                        </div>
-                        <button className="btn btn-danger mt-5" type="submit">
-                                Hacer pedido 
+                            <button className="btn btn-large btn-danger  mt-5" type="submit">
+                                Hacer pedido
                             </button>
                         </form>
                     </div>
